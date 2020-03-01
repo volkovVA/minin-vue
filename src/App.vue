@@ -4,7 +4,10 @@
     <h1>{{ carName }}</h1>
     <app-car 
       :carName="carName"
-      :carYear="carYear">
+      :carYear="carYear"
+      :changeFunc="changeNameToAudi"
+      @nameChanged="carName = $event"
+    >
     </app-car>
     <router-view/>
   </div>
@@ -14,15 +17,20 @@
 import Car from './components/Car'
 
 export default {
-  name: 'App',
+  // name: 'App',
+  components: {
+    appCar: Car
+  },
   data() {
     return {
       carName: 'Mazda',
       carYear: 2020
     }
   },
-  components: {
-    appCar: Car
+  methods: {
+    changeNameToAudi() {
+      this.carName = 'Audi'
+    }
   }
 }
 </script>

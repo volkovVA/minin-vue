@@ -1,13 +1,29 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <h1>{{ carName }}</h1>
+    <app-car 
+      :carName="carName"
+      :carYear="carYear">
+    </app-car>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Car from './components/Car'
+
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      carName: 'Mazda',
+      carYear: 2020
+    }
+  },
+  components: {
+    appCar: Car
+  }
 }
 </script>
 

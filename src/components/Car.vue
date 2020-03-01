@@ -4,6 +4,7 @@
     <p>Year: {{ carYear }}</p>
     <button @click="changeName">Change name</button> 
     <button @click="changeFunc()">Change car from Parent</button> 
+    <button @click="updateCounter">Update Counter</button>
   </div>
 </template>
 
@@ -20,7 +21,8 @@
         required: true
       },
       carYear: Number,
-      changeFunc: Function
+      changeFunc: Function,
+      counter: Number
     },
     computed: {
       reverseName() {
@@ -31,6 +33,9 @@
       changeName() {
         this.carName = "Mercedes"
         this.$emit('nameChanged', this.carName)
+      },
+      updateCounter() {
+        this.$emit('counterUpdated', this.counter + 1)
       }
     }
   }

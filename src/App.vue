@@ -2,11 +2,14 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>{{ carName }}</h1>
+    <app-counter :counter="counter"></app-counter>
     <app-car 
       :carName="carName"
       :carYear="carYear"
       :changeFunc="changeNameToAudi"
+      :counter="counter"
       @nameChanged="carName = $event"
+      @counterUpdated="counter = $event"
     >
     </app-car>
     <router-view/>
@@ -15,16 +18,19 @@
 
 <script>
 import Car from './components/Car'
+import Counter from './components/Counter'
 
 export default {
   // name: 'App',
   components: {
-    appCar: Car
+    appCar: Car,
+    appCounter: Counter
   },
   data() {
     return {
       carName: 'Mazda',
-      carYear: 2020
+      carYear: 2020,
+      counter: 0
     }
   },
   methods: {

@@ -1,3 +1,4 @@
+/* eslint-disable vue/require-v-for-key */
 <template>
   <div id="app">
     <img src="./assets/logo.png">
@@ -20,6 +21,13 @@
       <h2>{{ title2 | lowercase }}</h2>
       <h2>{{ title2 | uppercase }}</h2>
     </div>
+      <input type="text" v-model="searchName"> 
+      <ul>
+        <li v-for="name of filteredNames" :key=name.id>{{ name }}</li>
+      </ul>
+    <div>
+
+    </div>
     <router-view/>
   </div>
 </template>
@@ -33,7 +41,9 @@ export default {
       carName: 'Jaguar',
       title: 'Hello I am Vue!!!',
       title2: 'I Am VUE Filter!!!',
-      visible: true
+      visible: true,
+      names: ['Vlad', 'Max', 'Elena', 'Slava'],
+      searchName: ''
     }
   },
   directives: {
@@ -41,6 +51,13 @@ export default {
       bind(el, bindings, vNode) {
         el.style.fontSize = '60px'
       }
+    }
+  },
+  computed: {
+    filteredNames() {
+      return this.names.filter(name => {
+        return name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1
+      })
     }
   },
   filters: {

@@ -15,6 +15,11 @@
       <h2 v-different:color.delay.font="'blue'">{{ title }}</h2>
       <h2 v-font>Local font directive</h2>
     </div>
+    <div>
+      <h2>{{ title2 }}</h2>
+      <h2>{{ title2 | lowercase }}</h2>
+      <h2>{{ title2 | uppercase }}</h2>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -27,6 +32,7 @@ export default {
     return {
       carName: 'Jaguar',
       title: 'Hello I am Vue!!!',
+      title2: 'I Am VUE Filter!!!',
       visible: true
     }
   },
@@ -35,6 +41,11 @@ export default {
       bind(el, bindings, vNode) {
         el.style.fontSize = '60px'
       }
+    }
+  },
+  filters: {
+    lowercase(value) {
+      return value.toLowerCase()
     }
   },
   components: {

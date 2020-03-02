@@ -9,6 +9,8 @@ import ColorDirectiveBlue from './colorDif'
 Vue.directive('red', ColorDirectiveRed)
 Vue.directive('different', ColorDirectiveBlue)
 
+Vue.filter('uppercase', value => value.toUpperCase())
+
 export const eventEmitter = new Vue()
 
 Vue.config.productionTip = false

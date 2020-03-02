@@ -13,6 +13,7 @@
     <div>
       <h2 v-different:background.font="'green'">{{ title }}</h2>
       <h2 v-different:color.delay.font="'blue'">{{ title }}</h2>
+      <h2 v-font>Local font directive</h2>
     </div>
     <router-view/>
   </div>
@@ -27,6 +28,13 @@ export default {
       carName: 'Jaguar',
       title: 'Hello I am Vue!!!',
       visible: true
+    }
+  },
+  directives: {
+    font: {
+      bind(el, bindings, vNode) {
+        el.style.fontSize = '60px'
+      }
     }
   },
   components: {

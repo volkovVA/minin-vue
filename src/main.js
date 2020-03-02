@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ColorDirectiveRed from './colorRed'
+import ColorDirectiveBlue from './colorDif'
 
 Vue.directive('red', ColorDirectiveRed)
+Vue.directive('different', ColorDirectiveBlue)
 
 export const eventEmitter = new Vue()
 

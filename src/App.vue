@@ -10,6 +10,10 @@
       <button @click="visible=!visible">Toogle</button>
       <button @click="title='New title'">Change Title</button>
     </div>
+    <div>
+      <h2 v-different:background.font="'green'">{{ title }}</h2>
+      <h2 v-different:color.delay.font="'blue'">{{ title }}</h2>
+    </div>
     <router-view/>
   </div>
 </template>

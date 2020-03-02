@@ -5,11 +5,14 @@ import App from './App'
 import router from './router'
 import ColorDirectiveRed from './colorRed'
 import ColorDirectiveBlue from './colorDif'
+import List from './components/List.vue'
 
 Vue.directive('red', ColorDirectiveRed)
 Vue.directive('different', ColorDirectiveBlue)
 
 Vue.filter('uppercase', value => value.toUpperCase())
+
+Vue.component('app-list', List)
 
 export const eventEmitter = new Vue()
 

@@ -6,12 +6,12 @@
       <h2 slot="title">{{ carName }}</h2>
       <p slot="text">Lorem ipsum dolor sit amet</p>
     </app-car>
-    <div>
+    <div> <!-- Блок жизненного цикла директив -->
       <h2 v-red v-if="visible">{{ title }}</h2>
       <button @click="visible=!visible">Toogle</button>
       <button @click="title='New title'">Change Title</button>
     </div>
-    <div>
+    <div> <!-- Блок с применением аргументов и модификаторов директив-->
       <h2 v-different:background.font="'green'">{{ title }}</h2>
       <h2 v-different:color.delay.font="'blue'">{{ title }}</h2>
       <h2 v-font>Local font directive</h2>
@@ -20,12 +20,15 @@
       <h2>{{ title2 }}</h2>
       <h2>{{ title2 | lowercase }}</h2>
       <h2>{{ title2 | uppercase }}</h2>
-    </div>
+    </div> <!-- Блок фильтрации списков -->
       <input type="text" v-model="searchName"> 
       <ul>
         <li v-for="name of filteredNames" :key=name.id>{{ name }}</li>
       </ul>
     <div>
+      <div>
+          <app-list></app-list>
+      </div>
 
     </div>
     <router-view/>

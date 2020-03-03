@@ -2,15 +2,19 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <router-view/>
+
     <app-car>
       <h2 slot="title">{{ carName }}</h2>
       <p slot="text">Lorem ipsum dolor sit amet</p>
     </app-car>
+
     <div> <!-- Блок жизненного цикла директив -->
       <h2 v-red v-if="visible">{{ title }}</h2>
       <button @click="visible=!visible">Toogle</button>
       <button @click="title='New title'">Change Title</button>
     </div>
+
     <div> <!-- Блок с применением аргументов и модификаторов директив-->
       <h2 v-different:background.font="'green'">{{ title }}</h2>
       <h2 v-different:color.delay.font="'blue'">{{ title }}</h2>
@@ -20,29 +24,35 @@
       <h2>{{ title2 }}</h2>
       <h2>{{ title2 | lowercase }}</h2>
       <h2>{{ title2 | uppercase }}</h2>
-    </div> <!-- Блок фильтрации списков -->
+    </div>
+
+    <div> <!-- Блок фильтрации списков -->
       <input type="text" v-model="searchName"> 
       <ul>
         <li v-for="name of filteredNames" :key=name.id>{{ name }}</li>
       </ul>
+    </div>  
     <div>
-      <div>
-        <app-list></app-list>
-      </div>
+      <app-list></app-list>
     </div>
-    <div>
+
+    <div> <!-- Блок работа с формами -->
       <app-input></app-input>
     </div>
-    <div>
-        <h3>Form inputs</h3>
-        <app-onoff v-model="switched"></app-onoff>
 
-        <div>
-          <h3 v-if="switched">Component is enabled</h3>
-          <h3 v-else>Component is disabled</h3>
-        </div>
+    <div>
+      <h3>Form inputs</h3>
+      <app-onoff v-model="switched"></app-onoff>
+      <div>
+        <h3 v-if="switched">Component is enabled</h3>
+        <h3 v-else>Component is disabled</h3>
+      </div>
     </div>
-    <router-view/>
+
+    <div class="container"> <!-- Блок валидация форм -->
+      <app-validation></app-validation>
+    </div>
+    
   </div>
 </template>
 
@@ -50,12 +60,14 @@
 import Car from './components/Car'
 import Input from './components/Input'
 import Onoff from './components/Onoff'
+import Validation from './components/Validation'
 
 export default {
   components: {
     appCar: Car,
     appInput: Input,
-    appOnoff: Onoff 
+    appOnoff: Onoff,
+    appValidation: Validation 
   },
   data() {
     return {

@@ -27,9 +27,11 @@
       </ul>
     <div>
       <div>
-          <app-list></app-list>
+        <app-list></app-list>
       </div>
-
+    </div>
+    <div>
+      <app-input></app-input>
     </div>
     <router-view/>
   </div>
@@ -37,8 +39,13 @@
 
 <script>
 import Car from './components/Car'
+import Input from './components/Input'
 
 export default {
+  components: {
+    appCar: Car,
+    appInput: Input
+  },
   data() {
     return {
       carName: 'Jaguar',
@@ -67,9 +74,6 @@ export default {
     lowercase(value) {
       return value.toLowerCase()
     }
-  },
-  components: {
-    appCar: Car
   }
 }
 </script>

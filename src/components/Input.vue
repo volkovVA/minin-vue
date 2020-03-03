@@ -33,6 +33,22 @@
     </label>
     <hr>
     <p>{{ socials2 }}</p>
+
+    <select>
+      <option 
+        v-for="s in socialList" 
+        :key="s.id"
+        :selected="s === defaultSocial"
+      >{{ s }}</option>
+    </select>
+    <select v-model="defaultSocial2">
+      <option 
+        v-for="s in socialList" 
+        :key="s.id"
+      >{{ s }}</option>
+    </select>
+    <hr>
+    <p>{{ defaultSocial2 }}</p>
   </div>
 </template>
 
@@ -43,7 +59,11 @@
         name: 'Initial state',
         textarea: 'I am initial text',
         socials: ['vk'],
-        socials2: 'facebook'
+        socials2: 'facebook',
+        socialList: ['instagram', 'vk', 'facebook'],
+        defaultSocial: 'instagram',
+        defaultSocial2: 'instagram',
+
       }
     }
   }

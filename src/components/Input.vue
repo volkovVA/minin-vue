@@ -21,6 +21,18 @@
     <ul>
       <li v-for="social in socials" :key=social.id>{{ social }}</li>
     </ul>
+
+    <label>
+      <input type="radio" value="instagram" v-model="socials2"> Instagram
+    </label>
+    <label>
+      <input type="radio" value="vk" v-model="socials2"> VK
+    </label>
+    <label>
+      <input type="radio" value="facebok" v-model="socials2"> Facebook
+    </label>
+    <hr>
+    <p>{{ socials2 }}</p>
   </div>
 </template>
 
@@ -30,7 +42,8 @@
       return {
         name: 'Initial state',
         textarea: 'I am initial text',
-        socials: ['vk']
+        socials: ['vk'],
+        socials2: 'facebook'
       }
     }
   }

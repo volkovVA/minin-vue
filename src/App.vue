@@ -33,6 +33,15 @@
     <div>
       <app-input></app-input>
     </div>
+    <div>
+        <h3>Form inputs</h3>
+        <app-onoff v-model="switched"></app-onoff>
+
+        <div>
+          <h3 v-if="switched">Component is enabled</h3>
+          <h3 v-else>Component is disabled</h3>
+        </div>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -40,11 +49,13 @@
 <script>
 import Car from './components/Car'
 import Input from './components/Input'
+import Onoff from './components/Onoff'
 
 export default {
   components: {
     appCar: Car,
-    appInput: Input
+    appInput: Input,
+    appOnoff: Onoff 
   },
   data() {
     return {
@@ -53,7 +64,8 @@ export default {
       title2: 'I Am VUE Filter!!!',
       visible: true,
       names: ['Vlad', 'Max', 'Elena', 'Slava'],
-      searchName: ''
+      searchName: '',
+      switched: false
     }
   },
   directives: {

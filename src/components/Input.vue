@@ -49,6 +49,10 @@
     </select>
     <hr>
     <p>{{ defaultSocial2 }}</p>
+
+    <input type="text" v-model.number="age">
+    <p>{{ age }}</p>
+    
   </div>
 </template>
 
@@ -63,7 +67,13 @@
         socialList: ['instagram', 'vk', 'facebook'],
         defaultSocial: 'instagram',
         defaultSocial2: 'instagram',
-
+        age: 20
+      }
+    },
+    watch: {
+      age(value) {
+        console.log(value)
+        console.log(typeof value)
       }
     }
   }

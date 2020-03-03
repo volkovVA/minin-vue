@@ -8,13 +8,13 @@
           type="email"
           id="email" 
           class="form-control"
+          :class="{'is-invalid' : $v.email.$error}"
           @blur="$v.email.$touch()"
           v-model="email"
         >
+        <div class="invalid-feedback" v-if="!$v.email.required">Email field is required</div>
+        <div class="invalid-feedback" v-if="!$v.email.email">This field should be an email</div>
       </div>
-      <pre>
-        {{ $v.email }}
-      </pre>
     </form>
   </div>
 </template>

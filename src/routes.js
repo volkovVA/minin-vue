@@ -2,6 +2,7 @@ import VueRouter from 'vue-router'
 import Home from './pages/Home'
 import Cars from './pages/Cars'
 import Car from './pages/Car'
+import CarFull from './pages/Carfull'
 
 export default new VueRouter ({
   routes: [
@@ -15,7 +16,14 @@ export default new VueRouter ({
     },
     {
       path: '/car/:id',
-      component: Car
+      component: Car,
+      children: [
+        {
+          path: 'full', // localhost:8080/car/3/full
+          component: CarFull,
+          name: 'carFull'
+        }
+      ]
     }
   ],
   mode: 'history'

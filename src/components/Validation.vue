@@ -55,6 +55,7 @@
         :disabled="$v.$invalid"
       >Submit</button>
     </form>
+    <hr>
   </div>
 </template>
 

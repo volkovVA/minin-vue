@@ -1,7 +1,8 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import router from './router'
+import VueRouter from 'vue-router'
+import router from './routes'
 import Vuelidate from 'vuelidate'
 import App from './App'
 import ColorDirectiveRed from './colorRed'
@@ -11,6 +12,7 @@ import List from './components/List.vue'
 Vue.directive('red', ColorDirectiveRed)
 Vue.directive('different', ColorDirectiveBlue)
 Vue.use(Vuelidate)
+Vue.use(VueRouter)
 
 Vue.filter('uppercase', value => value.toUpperCase())
 

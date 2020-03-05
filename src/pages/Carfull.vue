@@ -23,8 +23,8 @@
 
 <style scoped>
   .scroll {
-    width: 100px;
-    height: 500px;
+    width: 50px;
+    height: 250px;
     background: #ccc;
   }
 </style>

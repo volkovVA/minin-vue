@@ -8,11 +8,13 @@ import App from './App'
 import ColorDirectiveRed from './colorRed'
 import ColorDirectiveBlue from './colorDif'
 import List from './components/List.vue'
+import VueResource from 'vue-resource'
 
 Vue.directive('red', ColorDirectiveRed)
 Vue.directive('different', ColorDirectiveBlue)
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 Vue.filter('uppercase', value => value.toUpperCase())
 

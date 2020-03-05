@@ -2,6 +2,12 @@
   <div>
     <h4>Car name: {{ $route.query.name }}</h4>
     <h4>Car year: {{ year }}</h4>
+
+    <div class="scroll"></div>
+
+    <h6 id="scroll">Hello from the bottom</h6>
+
+    <div class="scroll"></div>
   </div>
 </template>
 
@@ -16,7 +22,9 @@
 </script>
 
 <style scoped>
-  h2 {
-    color: red;
+  .scroll {
+    width: 100px;
+    height: 500px;
+    background: #ccc;
   }
 </style>

@@ -76,6 +76,18 @@
     <div class="container"> <!-- Блок валидация форм -->
       <app-validation></app-validation>
     </div>
+
+    <div>
+      <div class="form-group">
+        <label for="name">Car name</label>
+        <input type="text" id="name" class="form-control" v-model.trim="carNameForm">
+      </div>
+      <div class="form-group">
+        <label for="year">Car year</label>
+        <input type="text" id="year" class="form-control" v-model.number="carYear">
+      </div>
+      <button class="btn btn-success" @click="createCar">Create car</button>
+    </div>
     
   </div>
 </template>
@@ -101,7 +113,24 @@ export default {
       visible: true,
       names: ['Vlad', 'Max', 'Elena', 'Slava'],
       searchName: '',
-      switched: false
+      switched: false,
+      carNameForm: '',
+      carYear: 2018
+    }
+  },
+  methods: {
+    createCar() {
+      const car = {
+        name: this.carNameForm,
+        year: this.carYear
+      }
+      this.$http.post('http://localhost:3000/cars', car )
+        .then(response => {
+          return response.json()
+       })
+       .then(newCar => {
+         console.log(newCar)
+       })
     }
   },
   directives: {

@@ -16,6 +16,9 @@ Vue.use(Vuelidate)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.http.options.root = 'http://localhost:3000/'
+Vue.http.interceptors.push(request => {
+  request.headers.set('Auth', 'RAND TOKEN ' + Math.random())
+})
 
 Vue.filter('uppercase', value => value.toUpperCase())
 

@@ -15,6 +15,7 @@ Vue.directive('different', ColorDirectiveBlue)
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.http.options.root = 'http://localhost:3000/'
 
 Vue.filter('uppercase', value => value.toUpperCase())
 

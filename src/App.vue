@@ -159,7 +159,7 @@ export default {
     }
   },
   created() {
-    this.resource = this.$resource('http://localhost:3000/cars')
+    this.resource = this.$resource('cars')
   },
   directives: {
     font: {

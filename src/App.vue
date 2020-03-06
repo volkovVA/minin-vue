@@ -101,6 +101,8 @@
     </div>
 
     <div>
+      <h1>{{ hello }}</h1>
+      <hr>
       <app-counter></app-counter>
       <app-second-counter></app-second-counter>
       <hr>
@@ -188,6 +190,9 @@ export default {
       return this.names.filter(name => {
         return name.toLowerCase().indexOf(this.searchName.toLowerCase()) !== -1
       })
+    },
+    hello() {
+      return this.$store.getters.hello
     }
   },
   filters: {

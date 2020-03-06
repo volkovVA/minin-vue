@@ -101,8 +101,8 @@
     </div>
 
     <div>
-      <app-counter :counter="counter"></app-counter>
-      <app-actions @counterUpdated="counter += $event"></app-actions>
+      <app-counter></app-counter>
+      <app-actions></app-actions>
     </div>
     
   </div>

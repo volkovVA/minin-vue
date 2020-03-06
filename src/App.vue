@@ -99,6 +99,11 @@
         </li>
       </ul>
     </div>
+
+    <div>
+      <app-counter :counter="counter"></app-counter>
+      <app-actions @counterUpdated="counter += $event"></app-actions>
+    </div>
     
   </div>
 </template>
@@ -108,13 +113,18 @@ import Car from './components/Car'
 import Input from './components/Input'
 import Onoff from './components/Onoff'
 import Validation from './components/Validation'
+import Counter from './components/Counter'
+import Actions from './components/Actions'
+
 
 export default {
   components: {
     appCar: Car,
     appInput: Input,
     appOnoff: Onoff,
-    appValidation: Validation 
+    appValidation: Validation,
+    appCounter: Counter,
+    appActions: Actions 
   },
   data() {
     return {
@@ -128,7 +138,8 @@ export default {
       carNameForm: '',
       carYear: 2018,
       cars: [],
-      resource: null
+      resource: null,
+      counter: 0
     }
   },
   methods: {

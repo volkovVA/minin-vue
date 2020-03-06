@@ -1,17 +1,15 @@
 <template>
   <div>
-    <h2>Counter</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, culpa?</p>
+    <h2>Counter {{ counter }}</h2>
   </div>
 </template>
 
 <script>
   export default {
+    props: ['counter']
   }
 </script>
 
 <style scoped>
-  h2 {
-    color: red;
-  }
+  
 </style>

@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import router from './routes'
 import Vuelidate from 'vuelidate'
 import App from './App'
+import store from './store'
 import ColorDirectiveRed from './colorRed'
 import ColorDirectiveBlue from './colorDif'
 import List from './components/List.vue'
@@ -31,6 +32,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

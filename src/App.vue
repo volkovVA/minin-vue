@@ -102,6 +102,8 @@
 
     <div>
       <app-counter></app-counter>
+      <app-second-counter></app-second-counter>
+      <hr>
       <app-actions></app-actions>
     </div>
     
@@ -115,6 +117,7 @@ import Onoff from './components/Onoff'
 import Validation from './components/Validation'
 import Counter from './components/Counter'
 import Actions from './components/Actions'
+import SecondCounter from './components/SecondCounter'
 
 
 export default {
@@ -124,7 +127,8 @@ export default {
     appOnoff: Onoff,
     appValidation: Validation,
     appCounter: Counter,
-    appActions: Actions 
+    appActions: Actions,
+    appSecondCounter: SecondCounter 
   },
   data() {
     return {

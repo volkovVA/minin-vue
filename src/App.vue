@@ -1,18 +1,51 @@
 <template>
   <v-app>
-    <v-navigation-drawer app temporary></v-navigation-drawer>
+    <v-navigation-drawer
+      app
+      temporary
+      v-model="drawer"
+    >
+      <v-list dense>
+        <v-list-item-group color="primary">
+          <v-list-item
+            v-for="(link, i) in links"
+            :key="i.link"
+            :to="link.url"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ link.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title v-text="link.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
     <v-card
     color="grey lighten-4"
     flat
     height="200px"
     tile
   >
-    <v-toolbar app dark color="primary">
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-app-bar app dark color="primary">
+      <v-app-bar-nav-icon
+        @click="drawer = !drawer"
+        class="hidden-md-and-up"
+      ></v-app-bar-nav-icon>
       <v-toolbar-title>Ad application</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn flat>link</v-btn>
-    </v-toolbar>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn
+          v-for="(link, i) in links"
+          :key="i.link"
+          :to="link.url"
+          >
+          <v-icon left>{{ link.icon }}</v-icon>
+          {{ link.title }}
+        </v-btn>
+      </v-toolbar-items>
+    </v-app-bar>
   </v-card>
     <v-content>
       <router-view></router-view>
@@ -23,5 +56,17 @@
 <script>
 
 export default {
+  data () {
+    return {
+      drawer: false,
+      links: [
+        { title: 'Login', icon: 'lock', url: '/login' },
+        { title: 'Registration', icon: 'face', url: '/registration' },
+        { title: 'Orders', icon: 'bookmark_border', url: '/orders' },
+        { title: 'New ad', icon: 'note_add', url: '/new' },
+        { title: 'My ads', icon: 'list', url: '/list' }
+      ]
+    }
+  }
 }
 </script>

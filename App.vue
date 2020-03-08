@@ -1,19 +1,17 @@
 <template>
   <v-app>
     <v-navigation-drawer app temporary></v-navigation-drawer>
-    <v-card
-    color="grey lighten-4"
-    flat
-    height="200px"
-    tile
-  >
+
     <v-toolbar app dark color="primary">
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>Ad application</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn flat>link</v-btn>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat>Link One</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
-  </v-card>
+
+
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -21,7 +19,6 @@
 </template>
 
 <script>
-
 export default {
 }
 </script>

@@ -30,7 +30,6 @@
                 :rules="emailRules"
                 v-model="email"
               />
-
               <v-text-field
                 label="Password"
                 name="password"

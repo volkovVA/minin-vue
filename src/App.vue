@@ -40,6 +40,7 @@
           v-for="(link, i) in links"
           :key="i.link"
           :to="link.url"
+          color="blue darken-2"
           >
           <v-icon left>{{ link.icon }}</v-icon>
           {{ link.title }}

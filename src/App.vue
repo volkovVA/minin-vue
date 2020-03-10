@@ -22,12 +22,6 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-card
-    color="grey lighten-4"
-    flat
-    height="200px"
-    tile
-  >
     <v-app-bar app dark color="primary">
       <v-app-bar-nav-icon
         @click="drawer = !drawer"
@@ -47,7 +41,6 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-  </v-card>
     <v-content>
       <router-view></router-view>
     </v-content>

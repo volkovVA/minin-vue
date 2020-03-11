@@ -6,7 +6,7 @@
           xs12
           sm6
           md3
-          v-for="ad of ads"
+          v-for="ad of myAds"
           :key="ad.id"
         >
           <v-card
@@ -41,17 +41,9 @@
 
 <script>
 export default {
-  data () {
-    return {
-      ads: [
-        {
-          title: 'First ad',
-          description: 'Hello i am description',
-          promo: false,
-          imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          id: '123'
-        }
-      ]
+  computed: {
+    myAds () {
+      return this.$store.getters.myAds
     }
   }
 }

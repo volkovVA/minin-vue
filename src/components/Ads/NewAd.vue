@@ -69,12 +69,13 @@ export default {
   methods: {
     createAd () {
       if (this.$refs.form.validate()) {
-        // logic
         const ad = {
           title: this.title,
           description: this.description,
-          promo: this.promo
+          promo: this.promo,
+          imageSrc: 'https://mochikit.com/wp-content/uploads/2019/01/vue-js.jpg'
         }
+        this.$store.dispatch('createAd', ad)
         console.log(ad)
       }
     }

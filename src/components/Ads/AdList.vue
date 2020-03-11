@@ -28,6 +28,7 @@
               <v-btn
                 text
                 class="primary"
+                :to="'/ad/' + ad.id"
               >
                 Open
               </v-btn>

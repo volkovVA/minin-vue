@@ -24,7 +24,7 @@
               <div>{{ ad.description }}</div>
             </v-card-text>
             <v-card-actions>
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn
                 text
                 class="primary"

@@ -45,9 +45,10 @@
               <v-flex xs12>
                 <v-spacer></v-spacer>
                 <v-btn
+                  :loading="loading"
                   class="success"
                   @click="createAd"
-                  :disabled="!valid"
+                  :disabled="!valid || loading"
                 >Create ad</v-btn>
               </v-flex>
             </v-layout>
@@ -66,6 +67,11 @@ export default {
       valid: false
     }
   },
+  computed: {
+    loading () {
+      return this.$store.getters.loading
+    }
+  },
   methods: {
     createAd () {
       if (this.$refs.form.validate()) {
@@ -76,7 +82,10 @@ export default {
           imageSrc: 'https://mochikit.com/wp-content/uploads/2019/01/vue-js.jpg'
         }
         this.$store.dispatch('createAd', ad)
-        console.log(ad)
+          .then(() => {
+            this.$router.push('/list')
+          })
+          .catch(() => {})
       }
     }
   }

@@ -1,7 +1,7 @@
 import * as fb from 'firebase'
 
 class Ad {
-  constructor (title, description, ownerId, imageSrc = '', promo = false, id = null) {
+  constructor (title, description, ownerId, imageSrc, promo = false, id = null) {
     this.title = title
     this.description = description
     this.ownerId = ownerId
@@ -27,21 +27,33 @@ export default {
     async createAd ({ commit, getters }, payload) {
       commit('clearError')
       commit('setLoading', true)
+
+      const image = payload.image
+
       try {
         const newAd = new Ad(
           payload.title,
           payload.description,
           getters.user.id,
-          payload.imageSrc,
+          '',
           payload.promo
         )
-        // eslint-disable-next-line no-unused-vars
+
         const ad = await fb.database().ref('ads').push(newAd)
-        commit('setLoading', false)
-        commit('createAd', {
-          ...newAd,
-          id: ad.key
+        const imageExt = image.name.slice(image.name.lastIndexOf('.'))
+        const fileData = await fb.storage().ref(`ads/${ad.key}.${imageExt}`).put(image)
+        const imageSrc = await fileData.ref.getDownloadURL();
+        fb.database().ref('ads').child(ad.key).update({
+          imageSrc
         })
+          .then(() => {
+            commit('setLoading', false)
+            commit('createAd', {
+              ...newAd,
+              id: ad.key,
+              imageSrc
+            })
+          })
       } catch (error) {
         commit('setError', error.message)
         commit('setLoading', false)
@@ -54,8 +66,8 @@ export default {
       const resultAds = []
       try {
         const fbVal = await fb.database().ref('ads').once('value')
-        console.log(fbVal)
         const ads = fbVal.val()
+        console.log(ads)
         Object.keys(ads).forEach(key => {
           const ad = ads[key]
           resultAds.push(

@@ -1,7 +1,7 @@
 <template>
     <v-dialog width="400px" v-model="modal">
       <template v-slot:activator="{ on }">
-        <v-btn color="warning" dark v-on="on">Edit</v-btn>
+        <v-btn color="warning" dark v-on="on" class="mr-2">Edit</v-btn>
       </template>
       <v-card>
         <v-container>

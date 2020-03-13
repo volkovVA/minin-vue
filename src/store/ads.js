@@ -67,7 +67,6 @@ export default {
       try {
         const fbVal = await fb.database().ref('ads').once('value')
         const ads = fbVal.val()
-        console.log(ads)
         Object.keys(ads).forEach(key => {
           const ad = ads[key]
           resultAds.push(

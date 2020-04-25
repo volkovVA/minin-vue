@@ -1,21 +1,19 @@
-# vue-project-minin
+# vue-theory-minin
+## Vue JS theory. Vlad Minin
 
-> A Vue.js project
+## See [DEMO](https://volkovva.github.io/vue-theory-minin/)
+![vue-theory](screenshots/demo.png "vue-theory")
 
-## Build Setup
-
-``` bash
-# install dependencies
+### Install dependencies
+```
 npm install
-
-# serve with hot reload at localhost:8080
+```
+### Serve with hot reload at localhost:8080
+```
 npm run dev
-
-# build for production with minification
+```
+### Build for production with minification
+```
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

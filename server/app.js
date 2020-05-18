@@ -12,7 +12,7 @@ io.on('connection', (socket) => {
       socket.emit('newMessage', {
         text: data.text + ' SERVER'
       })
-    }, 1000)
+    }, 500)
   })
 })
 

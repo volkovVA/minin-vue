@@ -80,8 +80,16 @@ export default {
           room: this.room
         }
 
-        this.setUser(user)
-        this.$router.push('/chat')
+        this.$socket.emit('userJoined', user, (data) => {
+          if (typeof data === 'string') {
+            // eslint-disable-next-line no-console
+            console.error(data)
+          } else {
+            user.id = data.userId
+            this.setUser(user)
+            this.$router.push('/chat')
+          }
+        })
       }
     }
   }

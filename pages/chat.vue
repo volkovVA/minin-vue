@@ -6,7 +6,7 @@
         :key="m.text"
         :name="m.name"
         :text="m.text"
-        owner
+        :owner="m.id === user.id"
       />
     </div>
     <div class="c-form">
@@ -21,11 +21,8 @@ import Message from '@/components/Message'
 import ChatForm from '@/components/ChatForm'
 
 export default {
-  components: {
-    Message,
-    ChatForm
-  },
   middleware: ['chat'],
+  components: { Message, ChatForm },
   head () {
     return {
       title: `Комната ${this.user.room}`

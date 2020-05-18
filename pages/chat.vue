@@ -1,9 +1,9 @@
 <template>
   <div class="c-wrap">
-    <div class="c-chat">
+    <div ref="block" class="c-chat">
       <message
-        v-for="m in messages"
-        :key="m.text"
+        v-for="(m, i) in messages"
+        :key="i"
         :name="m.name"
         :text="m.text"
         :owner="m.id === user.id"
@@ -29,7 +29,15 @@ export default {
     }
   },
   // eslint-disable-next-line vue/order-in-components
-  computed: mapState(['user', 'messages'])
+  computed: mapState(['user', 'messages']),
+  // eslint-disable-next-line vue/order-in-components
+  watch: {
+    messages () {
+      setTimeout(() => {
+        this.$refs.block.scrollTop = this.$refs.block.scrollHeight
+      })
+    }
+  }
 }
 </script>
 

@@ -69,6 +69,7 @@ export default {
       console.log('socket connected')
     }
   },
+  // eslint-disable-next-line vue/order-in-components
   methods: {
     ...mapMutations(['setUser']),
     submit () {

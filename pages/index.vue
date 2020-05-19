@@ -12,7 +12,7 @@
         <v-snackbar
           v-model="snackbar"
           :timeout="10000"
-          top
+          bottom
         >
           {{ message }}
           <v-btn

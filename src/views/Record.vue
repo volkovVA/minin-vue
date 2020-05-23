@@ -91,7 +91,13 @@
 <script>
 import { required, minValue } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
+import localizeFilter from '@/filters/localize.filter'
 export default {
+  metaInfo () {
+    return {
+      title: this.$title('Menu_NewRecord')
+    }
+  },
   name: 'record',
   data: () => ({
     loading: true,
@@ -121,11 +127,6 @@ export default {
       M.updateTextFields()
     }, 0)
   },
-  destroyed () {
-    if (this.select && this.select.destroy) {
-      this.select.destroy()
-    }
-  },
   computed: {
     ...mapGetters(['info']),
     canCreateRecord () {
@@ -137,9 +138,10 @@ export default {
     }
   },
   methods: {
-    async submitHandler () {
+    async handleSubmit () {
       if (this.$v.$invalid) {
         this.$v.$touch()
+        return
       }
 
       if (this.canCreateRecord) {
@@ -147,23 +149,32 @@ export default {
           await this.$store.dispatch('createRecord', {
             categoryId: this.category,
             amount: this.amount,
-            destroy: this.description,
+            description: this.description,
             type: this.type,
             date: new Date().toJSON()
           })
-          const bill = this.type === 'income'
-            ? this.info.bill + this.amount
-            : this.info.bill - this.amount
+          const bill =
+            this.type === 'income'
+              ? this.info.bill + this.amount
+              : this.info.bill - this.amount
 
           await this.$store.dispatch('updateInfo', { bill })
-          this.$message('Запись успешно создана')
+          this.$message(localizeFilter('RecordHasBeenCreated'))
           this.$v.$reset()
           this.amount = 1
           this.description = ''
-        } catch (error) {}
+        } catch (e) {}
       } else {
-        this.$message(`Недостаточно средств на счете (${this.amount - this.info.bill})`)
+        this.$message(
+          `${localizeFilter('NotEnoughMoney')} (${this.amount -
+            this.info.bill})`
+        )
       }
+    }
+  },
+  destroyed () {
+    if (this.select && this.select.destroy) {
+      this.select.destroy()
     }
   }
 }

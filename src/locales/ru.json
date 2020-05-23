@@ -62,5 +62,6 @@
   "OpenRecord": "Посмотреть запись",
   "MoreThan": "Превышение на",
   "Stayed": "Осталось",
-  "CreateNewRecord": "Создать новую запись"
+  "CreateNewRecord": "Создать новую запись",
+  "Detail_Title": "Запись"
 }

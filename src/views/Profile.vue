@@ -42,6 +42,11 @@
 import { mapGetters, mapActions } from 'vuex'
 import { required } from 'vuelidate/lib/validators'
 export default {
+  metaInfo () {
+    return {
+      title: this.$title('ProfileTitle')
+    }
+  },
   data: () => ({
     name: '',
     isRuLocale: true
@@ -52,6 +57,7 @@ export default {
   mounted () {
     this.name = this.info.name
     this.isRuLocale = this.info.locale === 'ru-RU'
+    localStorage.setItem('locale', this.isRuLocale)
     setTimeout(() => {
       // eslint-disable-next-line no-undef
       M.updateTextFields()

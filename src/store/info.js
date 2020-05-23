@@ -2,9 +2,7 @@ import firebase from 'firebase/app'
 
 export default {
   state: {
-    info: {
-
-    }
+    info: {}
   },
   mutations: {
     setInfo (state, info) {
@@ -19,21 +17,27 @@ export default {
       try {
         const uid = await dispatch('getUid')
         const updateData = { ...getters.info, ...toUpdate }
-        await firebase.database().ref(`/users/${uid}/info`).update(updateData)
+        await firebase
+          .database()
+          .ref(`/users/${uid}/info`)
+          .update(updateData)
         commit('setInfo', updateData)
-      } catch (error) {
-        commit('setError', error)
-        throw error
+      } catch (e) {
+        commit('setError', e)
+        throw e
       }
     },
     async fetchInfo ({ dispatch, commit }) {
       try {
         const uid = await dispatch('getUid')
-        const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
+        const info = (await firebase
+          .database()
+          .ref(`/users/${uid}/info`)
+          .once('value')).val()
         commit('setInfo', info)
-      } catch (error) {
-        commit('setError', error)
-        throw error
+      } catch (e) {
+        commit('setError', e)
+        throw e
       }
     }
   },

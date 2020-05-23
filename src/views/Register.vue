@@ -1,7 +1,7 @@
 <template>
   <form class="card auth-card" @submit.prevent="submitHandler">
     <div class="card-content">
-      <span class="card-title">{{'CRM_Title'|localize}}</span>
+      <span class="card-title">{{ 'CRM_Title' | localize }}</span>
       <div class="input-field">
         <input
           id="email"
@@ -38,7 +38,7 @@
               ($v.password.$dirty && !$v.password.minLength)
           }"
         />
-        <label for="password">Пароль</label>
+        <label for="password">{{'Password'|localize}}</label>
         <small
           class="helper-text invalid"
           v-if="$v.password.$dirty && !$v.password.required"
@@ -59,7 +59,7 @@
           v-model.trim="name"
           :class="{invalid: $v.name.$dirty && !$v.name.required}"
         />
-        <label for="name">Имя</label>
+        <label for="name">{{'Name'|localize}}</label>
         <small
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
@@ -84,7 +84,7 @@
 
       <p class="center">
         {{'HasAccount'|localize}}
-        <router-link to="/login">Войти!</router-link>
+        <router-link to="/login">{{'Login'|localize}}</router-link>
       </p>
     </div>
   </form>
@@ -93,6 +93,11 @@
 <script>
 import { email, required, minLength } from 'vuelidate/lib/validators'
 export default {
+  metaInfo () {
+    return {
+      title: this.$title('Register')
+    }
+  },
   name: 'register',
   data: () => ({
     email: '',

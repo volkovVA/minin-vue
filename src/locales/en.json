@@ -33,7 +33,7 @@
   "Forward": "Forward",
   "Recording_With": "Recording with",
   "Not_Found": "not found",
-  "CRM_Title": "home bookkeeping",
+  "CRM_Title": "Home bookkeeping",
   "Message_EmailRequired": "Email field is required",
   "Message_EmailValid": "Enter valid email",
   "Password": "Password",
@@ -62,6 +62,7 @@
   "OpenRecord": "Open record",
   "MoreThan": "Excess on",
   "Stayed": "Left",
-  "CreateNewRecord": "Create new record"
+  "CreateNewRecord": "Create new record",
+  "Detail_Title": "Detail"
 }
 

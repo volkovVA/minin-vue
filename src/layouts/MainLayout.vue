@@ -12,7 +12,7 @@
       </main>
 
       <div class="fixed-action-btn" >
-        <router-link class="btn-floating btn-large blue" to="/record" v-tooltip="'CreateNewRecord'">
+        <router-link class="btn-floating btn-large blue" to="/record">
           <i class="large material-icons">add</i>
         </router-link>
       </div>
@@ -30,16 +30,16 @@ export default {
     isOpen: true,
     loading: true
   }),
-  components: {
-    Navbar,
-    Sidebar
-  },
   async mounted () {
     if (!Object.keys(this.$store.getters.info).length) {
       await this.$store.dispatch('fetchInfo')
     }
 
     this.loading = false
+  },
+  components: {
+    Navbar,
+    Sidebar
   },
   computed: {
     error () {

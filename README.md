@@ -1,18 +1,20 @@
 # vue-theory-minin
-## Vue JS theory. Vlad Minin
+## Основы VUE.JS. Влад Минин
 
-## See [DEMO](https://volkovva.github.io/vue-theory-minin/)
+***Цель***: Изучение основ и возможностей фреймворка VUE.js. Практика работы с компонентами.
+
+## Посмотреть по ссылке: [VUE](https://volkovva.github.io/vue-theory-minin/)
 ![vue-theory](screenshots/demo.png "vue-theory")
 
-### Install dependencies
+### Установка зависимостей
 ```
 npm install
 ```
-### Serve with hot reload at localhost:8080
+### Запуск сервера для разработки проекта
 ```
 npm run dev
 ```
-### Build for production with minification
+### Cобрать проект в продакшн
 ```
 npm run build
 ```

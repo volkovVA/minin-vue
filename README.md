@@ -10,8 +10,8 @@
 * Materialize
 
 ## See [DEMO](https://vue-crm-e0c0a.web.app/register)
-![crm-project](screenshots/demo.png "crm-project")
-![crm-project](screenshots/demo2.png "crm-project")
+![crm-project](vue-crm/screenshots/demo.png "crm-project")
+![crm-project](vue-crm/screenshots/demo2.png "crm-project")
 
 ## Project setup
 ```

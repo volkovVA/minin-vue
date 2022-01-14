@@ -9,10 +9,9 @@
 * Firebase
 * Material Design
 
-## See [DEMO](https://volkovva.github.io/spa-project/)
 ### login: test@mail.ru
 ### password: 123456
-![spa-project](screenshots/demo.png "spa-project")
+![spa-project](vue-spa/screenshots/demo.png "spa-project")
 
 ## Project setup
 ```

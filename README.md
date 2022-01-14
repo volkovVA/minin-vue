@@ -7,8 +7,8 @@
 * Vuetify
 * Material Design
 
-![vuechat-project](screenshots/demo.png "vuechat-project")
-![vuechat-project](screenshots/demo2.png "vuechat-project")
+![vuechat-project](vue-chat/screenshots/demo.png "vuechat-project")
+![vuechat-project](vue-chat/screenshots/demo2.png "vuechat-project")
 
 ## Build Setup
 

@@ -3,8 +3,7 @@
 
 ***Цель***: Изучение основ и возможностей фреймворка VUE.js. Практика работы с компонентами.
 
-## Посмотреть по ссылке: [VUE](https://volkovva.github.io/vue-theory-minin/)
-![vue-theory](screenshots/demo.png "vue-theory")
+![vue-theory](vue-theory/screenshots/demo.png "vue-theory")
 
 ### Установка зависимостей
 ```
@@ -18,4 +17,3 @@ npm run dev
 ```
 npm run build
 ```
-

@@ -1,19 +1,16 @@
 # vue-theory-minin
-## Основы VUE.JS. Влад Минин
+### Basics of VUE.JS
 
-***Цель***: Изучение основ и возможностей фреймворка VUE.js. Практика работы с компонентами.
+***Goal***: Learning the basics and features of the VUE.js framework. Practice working with components.
+
+## Live Demo: [Vue Theory](https://volkovva.github.io/minin-vue/vue-theory/)
 
 ![vue-theory](vue-theory/screenshots/demo.png "vue-theory")
 
-### Установка зависимостей
-```
-npm install
-```
-### Запуск сервера для разработки проекта
-```
-npm run dev
-```
-### Cобрать проект в продакшн
-```
-npm run build
-```
+## Project Installation
+
+| Script | Destination |
+| ------ | ----------- |
+| npm install | Setting Dependencies |
+| npm run serve | Compiles and hot-reloads for development |
+| npm run build | Compiles and minifies for production |

@@ -1,5 +1,5 @@
 # vue-crm
-## Creating a CRM application on VUE and firebase
+### Creating a CRM application on VUE and firebase
 
 * Vue
 * Vue CLI
@@ -9,23 +9,16 @@
 * Vue-chartjs
 * Materialize
 
-## See [DEMO](https://vue-crm-e0c0a.web.app/register)
+## Live Demo: [Vue CRM](https://vue-crm-e0c0a.web.app/register)
+
 ![crm-project](vue-crm/screenshots/demo.png "crm-project")
 ![crm-project](vue-crm/screenshots/demo2.png "crm-project")
 
-## Project setup
-```
-npm install
-```
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-### Compiles and minifies for production
-```
-npm run build
-```
-### Lints and fixes files
-```
-npm run lint
-```
+## Project Installation
+
+| Script | Destination |
+| ------ | ----------- |
+| npm install | Setting Dependencies |
+| npm run serve | Compiles and hot-reloads for development |
+| npm run build | Compiles and minifies for production |
+| npm run lint | Lints and fixes files |
